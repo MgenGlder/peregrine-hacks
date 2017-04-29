@@ -1,0 +1,24 @@
+{
+  "name": "peregrine-hacks",
+  "version": "1.0.0",
+  "description": "Things we're using:\r Firebase\r Angular\r Angular-fire\r D3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisDahmCS/peregrine-hacks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisDahmCS/peregrine-hacks/issues"
+  },
+  "homepage": "https://github.com/ChrisDahmCS/peregrine-hacks#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "d3": "^4.8.0",
+    "jquery": "^3.2.1"
+  }
+}

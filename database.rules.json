@@ -1,0 +1,60 @@
+{
+  "rules": {
+    ".read": "true",
+    ".write": "auth != null",
+
+    "zone_human_population": {
+      "$zone_human_population": {  },
+      "zone" : {
+        "incits_id" : {  },
+        "country" : {  },
+        "name_1" : {  },
+        "name_2" : {  },
+        "name_3" : {  },
+        "name_4" : {  },
+        "name_5" : {  },
+        "name_6" : {  }
+      },
+      "centroid" : {
+        "centroid_x" : {  },
+        "centroid_y" : {  }
+      },
+      "inside" : {
+        "inside_x" : {  },
+        "inside_y" : {  }
+      },
+      "area" : {
+        "total_km" : {  },
+        "water_km" : {  },
+        "land_km" : {  }
+      },
+      "population_by_year" : {
+        "2000" : {
+          "population" : {  },
+          "density" : {  }
+        },
+        "2005" : {
+          "population" : {  },
+          "density" : {   }
+        },
+        "2010" : {
+          "population" : {  },
+          "density" : {  }
+        },
+        "2015" : {
+          "population" : {  },
+          "density" : {  }
+        },
+        "2020" : {
+          "population" : {  },
+          "density" : {  }
+        }
+      },
+      "context" : {
+        "context" : {  },
+        "context-nm" : {  },
+        "water_code" : {  }
+      }
+    }
+  }
+}
