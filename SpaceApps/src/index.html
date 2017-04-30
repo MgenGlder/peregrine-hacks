@@ -8,37 +8,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="assets/jqui/jquery-ui.min.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="assets/jqui/jquery-ui.structure.min.css" /> -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="assets/jqui/jquery-ui.min.js"></script>
 </head>
 <body>
   <!-- http://bl.ocks.org/mbostock/raw/4090846/us.json -->
   <div class="row1"> 
-    <input type="text" > 
-    <input type="checkbox">
-    <input type="checkbox">
-    <input type="checkbox">
+    <fieldset>
+      <legend>Select an environmental factor: </legend>
+      <label for="checkbox-1">Population Density</label>
+      <input type="checkbox" name="checkbox-1" id="checkbox-1">
+      <label for="checkbox-2">Tree Distribution</label>
+      <input type="checkbox" name="checkbox-2" id="checkbox-2">
+      <label for="checkbox-3">Food/Agriculture Migration</label>
+      <input type="checkbox" name="checkbox-3" id="checkbox-3">
+    </fieldset>
+    <div class="block-slider"> 
+      <div id="slider">
+        <div id="custom-handle" class="ui-slider-handle"></div>
+      </div>
+    </div>
   </div>
 
   <div class="row2">
-    BIG OL MAP
-        <style>
-
-    .counties {
-      fill: none;
-    }
-
-    .states {
-      fill: none;
-      stroke: #fff;
-      stroke-linejoin: round;
-    }
-
-    </style>
-    <svg width="960" height="600"></svg>
+    <div class="svg-image">
+      <svg width="640" height="400" viewBox="0 0 960 600" preserveAspectRatio="none"></svg>
+    </div>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/topojson.v2.min.js"></script>
     <script>
-
     var svg = d3.select("svg"),
         width = +svg.attr("width"),
         height = +svg.attr("height");
@@ -79,7 +80,7 @@
         .attr("fill", "#000")
         .attr("text-anchor", "start")
         .attr("font-weight", "bold")
-        .text("Unemployment rate");
+        .text("Population Density");
 
     g.call(d3.axisBottom(x)
         .tickSize(13)
@@ -114,10 +115,30 @@
 
     </script>
   </div>
-
+  <!-- 
   <div class="row3">
-    <div class="block-slider"> issa slider</div>
+    
   </div>
-  <app-root>Loading...</app-root>
+  -->
+  <script>
+    $( function() {
+      var handle = $( "#custom-handle" );
+      $( "#slider" ).slider({
+        min: 2000,
+        max: 2020,
+        step: 5,
+        create: function() {
+          handle.text( $( this ).slider( "value" ) );
+        },
+        slide: function( event, ui ) {
+          handle.text( ui.value );
+        }
+      });
+    } );
+    $( function() {
+      $( "input" ).checkboxradio();
+      $( "fieldset" ).controlgroup();
+   });
+  </script>
 </body>
 </html>
