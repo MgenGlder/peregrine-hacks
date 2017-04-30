@@ -28,7 +28,7 @@ var svg,
         .selectAll("path")
         .data(topojson.feature(us, us.objects.counties).features)
         .enter().append("path")
-          .attr("fill", function(d) { return getColor(d.rate = (unemployment.get(d.id) || 0) / 100000); })
+          .attr("fill", function(d) { return getColor(d.rate = (unemployment.get(d.id) || 0) / 55015); })
           .attr("d", path)
         .append("title")
           .text(function(d) { return d.rate; });
@@ -51,9 +51,11 @@ var svg,
                 .domain([1, 10])
                 .rangeRound([54755, 55015]);
 
-            color = d3.scaleThreshold()
-                .domain(d3.range(2, 10))
-                .range(d3.schemeGreens[9]);
+            var length = 10;
+            var color = d3.scaleThreshold()
+               .domain([2, length])
+              .range([d3.rgb("#0000FF"), d3.rgb('#FF0000')]);
+
 
             g = svg.append("g")
                 .attr("class", "key")
@@ -116,8 +118,7 @@ var svg,
     $( "input" ).checkboxradio();
     $( "fieldset" ).controlgroup();
    //Basically a jquery like selector, grabs svg element on page
-    
-
+  
 
     function getColorFromPop(pop, max){
 		return getColor(pop/max);
