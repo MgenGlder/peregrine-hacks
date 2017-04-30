@@ -93,8 +93,25 @@
         .defer(d3.json, "https://d3js.org/us-10m.v1.json")
         //.defer(d3.tsv, "unemployment.tsv", function(d) { unemployment.set(d.id, +d.rate); })
         .await(ready);
+    
+    var getJson = function() {
+      $.ajax({
+        'async': false,
+        'global': false,
+        'url': "./population_data.json",
+        'dataType': "json",
+        'success': function (data) {
+          data = data.zone_human_population;
+          data.forEach(function(d) {
+            unemployment.set(d.incits_id, +d.population_by_year["2000"]);
+          });
+        }
+      });
+    };
 
     function ready(error, us) {
+        console.log("in here");
+        
       if (error) throw error;
       getJson();
       svg.append("g")
