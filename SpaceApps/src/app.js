@@ -44,9 +44,11 @@
         .domain([1, 10])
         .rangeRound([600, 860]);
 
+
+    var length = 10;
     var color = d3.scaleThreshold()
-        .domain(d3.range(2, 10))
-        .range(d3.schemeGreens[9]);
+       .domain([2, length])
+      .range([d3.rgb("#0000FF"), d3.rgb('#FF0000')]);
 
     var g = svg.append("g")
         .attr("class", "key")
@@ -111,10 +113,10 @@
         .selectAll("path")
         .data(topojson.feature(us, us.objects.counties).features)
         .enter().append("path")
-          .attr("fill", function(d) { return getColor(d.rate = (unemployment.get(d.id) || 0) / 100000); })
+          .attr("fill", function (d) { return getColor(d.rate = (unemployment.get(d.id) || 0) / 55015); })
           .attr("d", path)
         .append("title")
-          .text(function(d) { return d.rate + "%"; });
+          .text(function(d) { return d.rate; });
 
       svg.append("path")
           .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
