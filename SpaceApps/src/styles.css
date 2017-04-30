@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+.row1 {
+    height: 150px;
+    text-align: center;
+}
+
+ .row2 {
+    height:400px;
+    background-color: lightgrey;
+    text-align:center;
+}
+.row3 {
+    padding-top: 50px;
+    height: 200px;
+}
+.block-slider {
+    background-color: white;
+    height:50px;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+.svg-image {
+    height:400px;
+}
+.ui-slider .ui-slider-handle {
+    width: 45px !important;
+    padding-left: 3px;
+}
+.counties {
+    fill: none;
+}
+
+.states {
+    fill: none;
+    stroke: #fff;
+    stroke-linejoin: round;
+}
