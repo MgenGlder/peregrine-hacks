@@ -111,7 +111,7 @@
         .selectAll("path")
         .data(topojson.feature(us, us.objects.counties).features)
         .enter().append("path")
-          .attr("fill", function(d) { return color(d.rate = (unemployment.get(d.id) || 0) / 5000); })
+          .attr("fill", function(d) { return getColor(d.rate = (unemployment.get(d.id) || 0) / 100000); })
           .attr("d", path)
         .append("title")
           .text(function(d) { return d.rate + "%"; });
@@ -121,4 +121,19 @@
           .attr("class", "states")
           .attr("d", path);
     }
+    function getColorFromPop(pop, max){
+		return getColor(pop/max);
+	}
+
+	function getColor(xPercent) {
+		var rgb;
+		
+		r = parseInt(255 * (xPercent));
+		g = 0;
+		b = parseInt(255 - (255 * (xPercent)));
+
+		rgb = "rgb("+r+","+g+","+b+")";
+		
+		return rgb;
+	}
 
